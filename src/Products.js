@@ -1,3 +1,5 @@
+import React from "react";
+
 const Products = () => (
   <div style={{ background: "blue" }}>
     <h2>Products</h2>
