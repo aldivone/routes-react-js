@@ -10,6 +10,7 @@ ReactDOM.render(
     <App />
   </BrowserRouter>,
   // <h1>Hello world, agora eu baitola funciona</h1>,
+  // <App />,
   document.getElementById("root")
 );
 

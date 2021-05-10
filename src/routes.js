@@ -1,12 +1,14 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route } from "react-router-dom";
+// import { Route, Switch } from "react-router-dom";
 import Category from "./Category";
 import Home from "./Home";
 import Products from "./Products";
 
 function Routes() {
   return (
-    <Switch>
+    <Router>
+      {/* <Switch> */}
       {/* Route components are rendered if the path prop matches the current URL */}
       <Route exact path="/">
         <Home />
@@ -17,7 +19,8 @@ function Routes() {
       <Route path="/products">
         <Products />
       </Route>
-    </Switch>
+      {/* </Switch> */}
+    </Router>
   );
 }
 

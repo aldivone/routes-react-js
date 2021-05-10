@@ -1,25 +1,16 @@
-const path = require("path");
+const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
 
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.join(__dirname, "src", "index.js"),
+  mode: 'production',
+  optimization: {
+    minimizer: [new TerserPlugin({ /* opções adicionais aqui */ })],
+  },
   output: {
-    path: path.join(__dirname, "build"),
-    filename: "index.bundle.js",
+    path: path.join(__dirname, "dist"),
+    filename: 'react-demo.bundle.js',
   },
-  mode: "production",
-  resolve: {
-    modules: [path.resolve(__dirname, "src"), "node_modules"],
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "src"),
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, "public", "index.html"),
-    }),
-  ],
   module: {
     rules: [
       {
@@ -27,14 +18,6 @@ module.exports = {
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
-      {
-        test: /\.(css|scss)$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
-      },
-      {
-        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
-        use: ["file-loader"],
-      },
-    ],
+    ]
   },
 };
